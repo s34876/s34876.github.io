@@ -1,7 +1,6 @@
 body {
-  font-family: TH Sarabun New, sans-serif;
- 
-  line-height: 2;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
   background-color: #fbebe8;
@@ -24,7 +23,6 @@ header p {
 }
 
 section {
-  font-size: 16px;
   padding: 20px;
   margin: 20px auto;
   max-width: 800px;
