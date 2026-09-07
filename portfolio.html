@@ -213,12 +213,33 @@
                 </p>
             </div>
         </div>
+        
+    <!-- กล่องป๊อปอัพขยายรูป (ใช้ร่วมกันทุกผลงาน) -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="รูปขนาดใหญ่">
+    </div>
 
+    <!-- สคริปต์ควบคุม (ใช้ร่วมกันทุกผลงาน) -->
+    <script>
+        function openLightbox(imageSrc) {
+            document.getElementById('lightbox-img').src = imageSrc;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
     </div>
 
     <div class="btn-container">
         <a href="index.html" class="btn-back">← กลับหน้าหลัก</a>
     </div>
+
 
 </body>
 </html>
