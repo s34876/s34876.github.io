@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ผลงานของฉัน - Portfolio</title>
     <style>
-        /* ตั้งค่าพื้นหลังและฟอนต์ให้คุมโทนเดียวกับหน้าแรก */
+        /* ตั้งค่าพื้นหลังและฟอนต์ให้เข้ากับหน้าหลัก */
         body {
             background-color: #8dc2d9;
             color: #333;
@@ -14,7 +14,7 @@
             padding: 40px 20px;
         }
 
-        /* หัวข้อหน้าเว็บ */
+        /* หัวข้อหน้า */
         .page-header {
             text-align: center;
             margin-bottom: 40px;
@@ -32,12 +32,12 @@
             margin: 0;
         }
 
-        /* คอนเทนเนอร์จัดกล่องผลงานแบบ Grid (3 คอลัมน์บนจอใหญ่, 1 คอลัมน์บนมือถือ) */
+        /* ปรับเป็น 1 คอลัมน์ตรงนี้ (กว้างสูงสุด 800px และอยู่ตรงกลางหน้าจอ) */
         .portfolio-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 30px;
-            max-width: 1100px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -45,63 +45,73 @@
         .portfolio-card {
             background: #ffffff;
             border-radius: 25px;
-            overflow: hidden; /* ตัดส่วนเกินของรูปให้โค้งตามกล่อง */
+            overflow: hidden;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
         }
 
-        /* เอฟเฟกต์ยกลอยเมื่อเอาเมาส์ไปชี้ */
         .portfolio-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
         }
 
-        /* รูปภาพผลงาน */
+        /* กรณีมีรูปเดียว */
         .portfolio-img {
             width: 100%;
-            height: 220px;
-            object-fit: cover; /* ปรับรูปให้เต็มพื้นที่โดยไม่เสียสเกล */
+            height: 350px; /* ปรับความสูงเพิ่มขึ้นเพื่อให้เหมาะกับกล่องขนาดกว้างขึ้น */
+            object-fit: cover;
             border-bottom: 3px solid #f0f0f0;
         }
 
-        /* ส่วนเนื้อหาในกล่อง */
-        .portfolio-body {
-            padding: 20px 25px 25px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
+        /* กรณีมี 2 รูปขึ้นไปใน 1 กล่อง (จัดวางแบบคู่กัน) */
+        .portfolio-img-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+            background: #f0f0f0;
+            border-bottom: 3px solid #f0f0f0;
         }
 
-        /* แท็กหมวดหมู่ผลงาน */
+        .portfolio-img-group img {
+            width: 100%;
+            height: 280px; /* ปรับความสูงเพิ่มขึ้น */
+            object-fit: cover;
+        }
+
+        /* เนื้อหาในกล่อง */
+        .portfolio-body {
+            padding: 25px 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
         .portfolio-tag {
             align-self: flex-start;
             background-color: #e7fb31;
             color: #2c3e50;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: bold;
-            padding: 4px 12px;
+            padding: 5px 14px;
             border-radius: 12px;
             margin-bottom: 12px;
         }
 
-        /* ชื่องาน / กิจกรรม */
         .portfolio-title {
             color: #2c3e50;
-            font-size: 22px;
+            font-size: 24px;
             margin: 0 0 10px 0;
         }
 
-        /* คำอธิบายผลงาน */
         .portfolio-text {
             color: #555;
-            font-size: 16px;
+            font-size: 17px;
             line-height: 1.6;
             margin: 0;
         }
 
-        /* ปุ่มย้อนกลับหน้าแรก */
+        /* ปุ่มกลับหน้าหลัก */
         .btn-container {
             text-align: center;
             margin-top: 50px;
@@ -126,54 +136,58 @@
 </head>
 <body>
 
-    <!-- หัวข้อหน้า -->
     <div class="page-header">
         <h1>แฟ้มสะสมผลงาน (Portfolio)</h1>
         <p>ผลงาน กิจกรรม และเกียรติบัตรที่เข้าร่วม</p>
     </div>
 
-    <!-- ผลงานแบบ 1 กล่อง ต่อ 1 ชิ้น -->
+    <!-- คอนเทนเนอร์แสดงผลแบบ 1 คอลัมน์เรียงลงมา -->
     <div class="portfolio-container">
 
-        <!-- กล่องผลงานที่ 1 -->
+        <!-- ===== กล่องที่ 1: กรณีมีหลายรูป (2 รูป) ===== -->
         <div class="portfolio-card">
-            <img src="project1.jpg" alt="รูปผลงานที่ 1" class="portfolio-img">
+            <div class="portfolio-img-group">
+                <img src="มอบรางวัลPAO" alt="การแข่งขันวอลเลย์บอลPAO">
+                <img src="PAO" alt="รูปรางวัลเกียรติบัตรการแข่งขันวอลเลย์บอลPAO">
+            </div>
             <div class="portfolio-body">
                 <span class="portfolio-tag">การแข่งขัน</span>
-                <h3 class="portfolio-title">การแข่งขันวิชาการ MSEP</h3>
+                <h3 class="portfolio-title">การแข่งขันกีฬานักเรียน นักศึกษาจังหวัดชลบุรี ประจำปี พ.ศ.2567 Chonburi PAO School games'2024</h3>
                 <p class="portfolio-text">
-                    เข้าร่วมและได้รับรางวัลในการแข่งขันตอบปัญหาทางวิทยาศาสตร์-คณิตศาสตร์ ประจำปีการศึกษา 2567
+                    ได้เข้าร่วมและได้รับรางวัล รองชนะเลิศอันดับ 1 กีฬาวอลเลย์บอลประเภทีมหญิง รุ่นอายุไม่เกิน 18
                 </p>
             </div>
         </div>
 
-        <!-- กล่องผลงานที่ 2 -->
+        <!-- ===== กล่องที่ 2: กรณีมีรูปเดียว ===== -->
         <div class="portfolio-card">
-            <img src="project2.jpg" alt="รูปผลงานที่ 2" class="portfolio-img">
+            <img src="project2.jpg" alt="รูปกิจกรรมค่ายจิตอาสา" class="portfolio-img">
             <div class="portfolio-body">
                 <span class="portfolio-tag">กิจกรรม</span>
-                <h3 class="portfolio-text-title" style="margin:0 0 10px; color:#2c3e50; font-size:22px;">กิจกรรมค่ายจิตอาสา</h3>
+                <h3 class="portfolio-title">กิจกรรมค่ายจิตอาสา</h3>
                 <p class="portfolio-text">
                     เข้าร่วมกิจกรรมพัฒนาโรงเรียนและชุมชน มอบสิ่งของและร่วมจัดกิจกรรมนันทนาการให้กับน้องๆ
                 </p>
             </div>
         </div>
 
-        <!-- กล่องผลงานที่ 3 -->
+        <!-- ===== กล่องที่ 3: กรณีมีหลายรูป (2 รูป) ===== -->
         <div class="portfolio-card">
-            <img src="project3.jpg" alt="รูปผลงานที่ 3" class="portfolio-img">
+            <div class="portfolio-img-group">
+                <img src="cert1.jpg" alt="รูปเกียรติบัตรผ่านการอบรม">
+                <img src="cert2.jpg" alt="รูปขณะทำเวิร์กช็อป">
+            </div>
             <div class="portfolio-body">
                 <span class="portfolio-tag">เกียรติบัตร</span>
                 <h3 class="portfolio-title">อบรมการพัฒนาเว็บไซต์</h3>
                 <p class="portfolio-text">
-                    ผ่านการอบรมเชิงปฏิบัติการ การเขียนโปรแกรมและพัฒนาเว็บไซต์เบื้องต้นด้วย HTML, CSS และ JavaScript
+                    ผ่านการอบรมเชิงปฏิบัติการ การเขียนโปรแกรมและพัฒนาเว็บไซต์เบื้องต้นด้วย HTML และ CSS
                 </p>
             </div>
         </div>
 
     </div>
 
-    <!-- ปุ่มกลับหน้าหลัก -->
     <div class="btn-container">
         <a href="index.html" class="btn-back">← กลับหน้าหลัก</a>
     </div>
