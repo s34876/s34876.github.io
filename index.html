@@ -110,6 +110,34 @@ p { font-size: 20px; line-height: 1.6; }
             transform: translateY(-2px);
         }
     
+    /* ฝั่งขวา: รูปตัวเองเต็มความสูงหน้าเว็บ */
+        .right-image {
+            flex: 0.8;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
+        .right-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* ตัดรูปให้เต็มพื้นที่ฝั่งขวา */
+            display: block;
+        }
+
+        /* สำหรับแสดงผลบนมือถือ */
+        @media (max-width: 900px) {
+            .split-container {
+                flex-direction: column-reverse;
+            }
+            .right-image {
+                height: 400px;
+            }
+            .left-content {
+                padding: 30px 20px;
+            }
+        }
+    
 </style>
 </head>
 <body>
