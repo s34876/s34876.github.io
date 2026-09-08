@@ -12,20 +12,37 @@ body {
 
 }
 .card {
-background: white; border-radius: 50px;
-box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-max-width: 500px; margin: 0 auto; padding: 30px;
+            background: white;
+            border-radius: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 35px 30px;
+        }
 
-}
-h1 { color: #2c3e50; }
-p { font-size: 20px; line-height: 1.6; }
- .profile-img {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
+        /* จัดเลย์เอาต์รูปคู่กับข้อมูลส่วนตัว */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        /* รูปแบบสี่เหลี่ยมโค้งมน */
+        .profile-img {
+            width: 160px;
+            height: 200px;
+            border-radius: 20px; /* สี่เหลี่ยมมุมมน */
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .info-details p {
+            font-size: 17px;
+            line-height: 1.7;
+            margin: 8px 0;
      
 }
 /* สไตล์สำหรับ ABOUT ME */
