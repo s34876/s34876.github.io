@@ -8,7 +8,7 @@
         /* ตั้งค่าพื้นหลังเว็บเป็นสีฟ้าอ่อน */
         body {
             background-color: #e0f2fe; /* สีฟ้าอ่อน */
-            font-family: 'Sarabun', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'sans-serif', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,6 +26,7 @@
             width: 100%;
             max-width: 400px;
             box-sizing: border-box;
+            text-align: left;
         }
 
         /* หัวข้อเน้นเด่นชัด สีชมพูอ่อน */
@@ -54,6 +55,29 @@
         .value {
             font-weight: 300;
         }
+
+        /* ปุ่มกลับหน้าแรก */
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .home-btn {
+            display: inline-block;
+            background-color: #f472b6; /* สีชมพูอ่อนเดียวกับหัวข้อ */
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background-color: #ec4899; /* เข้มขึ้นเล็กน้อยเมื่อเอาเมาส์ชี้ */
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -79,6 +103,11 @@
         <div class="contact-item">
             <span class="label">Instagram :</span> 
             <span class="value">p4naem._</span>
+        </div>
+
+        <!-- ปุ่มสำหรับกดกลับหน้าแรก -->
+        <div class="btn-container">
+            <a href="index.html" class="home-btn">กลับหน้าแรก</a>
         </div>
     </div>
 
