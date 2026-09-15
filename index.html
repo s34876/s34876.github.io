@@ -83,7 +83,7 @@ p { font-size: 20px; line-height: 1.6; }
     line-height: 1.8;
 }
     
-    /* สไตล์ความสามารถพิเศษ */
+/* สไตล์ความสามารถพิเศษแบบ 3D พาสเทล */
 .skills-container {
   display: flex;
   justify-content: space-between;
@@ -95,27 +95,51 @@ p { font-size: 20px; line-height: 1.6; }
 }
 
 .skill-card {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  padding: 10px 8px;
+  border-radius: 12px;
+  padding: 12px 6px;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  
+  /* เพิ่มเงา 3D และขอบปุ่ม */
+  border: 2px solid #b8e2cb;
+  box-shadow: 0 4px 0px #92caaa; /* เงาหนาด้านล่างสร้างมิติ 3D */
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+/* สลับสีสี่เหลี่ยม (เลขคี่: สีเขียวพาสเทล / เลขคู่: สีขาว) */
+.skill-card:nth-child(odd) {
+  background-color: #d8f3e5; /* เขียวพาสเทลนุ่มๆ */
+}
+
+.skill-card:nth-child(even) {
+  background-color: #ffffff; /* สีขาว clean */
+}
+
+/* เอฟเฟกต์เวลานำเมาส์ไปชี้ ให้กดแล้วดึ๋งๆ */
+.skill-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0px #92caaa;
+}
+
+.skill-card:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0px #92caaa;
 }
 
 .skill-icon {
-  font-size: 22px;
-  margin-bottom: 5px;
+  font-size: 24px;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
 }
 
 .skill-text {
-  font-size: 12px;
-  color: #333333;
+  font-size: 11px;
+  color: #2c3e50;
   font-weight: bold;
   line-height: 1.3;
 }
